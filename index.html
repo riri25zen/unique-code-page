@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Your Unique Code</title>
+    <script>
+      // Function to get URL parameters
+      function getUrlParameter(name) {
+          name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+          var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+          var results = regex.exec(location.search);
+          return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+      }
+
+      // Display the unique code on page load
+      window.onload = function() {
+          var uniqueCode = getUrlParameter('code');
+          document.getElementById('uniqueCode').innerText = uniqueCode;
+      };
+    </script>
+</head>
+<body>
+    <h1>Thank you for submitting the form!</h1>
+    <p>Your unique code is: <strong id="uniqueCode"></strong></p>
+</body>
+</html>
